@@ -44,6 +44,4 @@ Soy estudiante de Ingeniería de Software con enfoque en desarrollo backend, pro
 ---
 
 ## 📫 Contacto
-- GitHub: [tu_usuario](https://github.com/tu_usuario)
-- LinkedIn: [Tu Nombre](https://linkedin.com/in/tu-linkedin)
-- Email: tuemail@ejemplo.com
+- GitHub: [tu_usuario](https://github.com/SaladDann)
