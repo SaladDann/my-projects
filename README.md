@@ -17,31 +17,8 @@ Cada proyecto incluye su descripción, tecnologías utilizadas y enlaces directo
 ### 🛠️ Sistema de Reparaciones de Celulares (Node.js + React)
 **Descripción:** Plataforma completa para gestionar clientes, técnicos, equipos y estados de reparación con roles diferenciados y notificaciones en tiempo real.  
 **Tecnologías:** Node.js, Express, Prisma ORM, JWT, React, MySQL.  
-🔗 [Backend](https://github.com/tu_usuario/node-repair-backend) | [Frontend](https://github.com/tu_usuario/repair-frontend)
+🔗 [Backend](https://github.com/SaladDann/BACKEND_REPARACIONES) | [Frontend](https://github.com/SaladDann/app-reparaciones)
 
 ---
-
-### 🎵 Beatmaker JS
-**Descripción:** Secuenciador de ritmos básico en navegador, permite crear loops rítmicos usando Web Audio API.  
-**Tecnologías:** JavaScript, HTML5, CSS3, Web Audio API.  
-🔗 [Repositorio](https://github.com/tu_usuario/js-beatmaker)
-
----
-
-## 🧪 Otros Proyectos Académicos
-
-- **Sistema de Inventario Básico** (React + Firebase)  
-  🔗 [Ver repo](https://github.com/tu_usuario/react-inventory-app)
-
-- **Simulador de Algoritmos de Ordenamiento** (C++)  
-  🔗 [Ver repo](https://github.com/tu_usuario/algorithms-cpp)
-
----
-
-## 📌 Sobre mí
-Soy estudiante de Ingeniería de Software con enfoque en desarrollo backend, producción musical y proyectos académicos de alto nivel técnico. También participo en investigación científica y me gusta crear soluciones que integren software y creatividad.
-
----
-
 ## 📫 Contacto
 - GitHub: [tu_usuario](https://github.com/SaladDann)
