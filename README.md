@@ -10,7 +10,7 @@ Cada proyecto incluye su descripción, tecnologías utilizadas y enlaces directo
 ### 📚 Gestor de Biblioteca (C++)
 **Descripción:** Aplicación de consola para gestionar libros, usuarios y préstamos. Incluye persistencia en archivos y estructura orientada a objetos.  
 **Tecnologías:** C++, fstream, programación estructurada y orientada a objetos.  
-🔗 [Repositorio](https://github.com/tu_usuario/cpp-library-manager)
+🔗 [Repositorio](https://github.com/SaladDann/LibraryManagerCPP)
 
 ---
 
