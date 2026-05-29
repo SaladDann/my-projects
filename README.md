@@ -23,6 +23,5 @@ Iniciativas propias.
 
 ## 📫 Contacto
 - **GitHub:** [SaladDann](https://github.com/SaladDann)
-- **LinkedIn:** [Tu Perfil Aquí]
-
+- **LinkedIn:** 
 
