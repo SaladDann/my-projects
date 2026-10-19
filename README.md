@@ -1,27 +1,21 @@
-# 💻 Software Engineering Portfolio
+# 📂 Catálogo de Proyectos — Edwin Quishpi
 
-Resumen de Trabajos de formación académica y proyectos personales.
-> *Este repositorio sirve como índice centralizado. Cada proyecto contiene su propia documentación detallada.*
----
-## 🎓 Formación Académica
-Proyectos destacados organizados por materia y complejidad técnica.
+<p align="left">
+  <a href="https://github.com/SaladDann">
+    <img src="https://img.shields.io/badge/⬅️_Volver_al_Perfil-0f172a?style=for-the-badge&logoColor=white" alt="Volver al Perfil" />
+  </a>
+</p>
 
-| Materia | Proyecto / Repositorio | Stack Tecnológico |
-| :--- | :--- | :--- |
-| **Algoritmos y Logica** | [Ver Repositorio](https://github.com/SaladDann/Edu) | Java, RMI, Docker |
-
+> Este catálogo recopila automáticamente todos los repositorios creados en mi cuenta de GitHub, ordenados cronológicamente desde el más reciente.
 
 ---
 
-## 🚀 Proyectos Personales
-Iniciativas propias.
+<!-- CATALOG_START -->
+<!-- Aquí la GitHub Action insertará la cuadrícula de proyectos -->
+<!-- CATALOG_END -->
 
-* **[Audio & Music Suite](https://github.com/SaladDann)**: Herramientas para procesamiento de audio y gestión de proyectos creativos.
-* **[Hardware Compatibility Lab](https://github.com/SaladDann)**: Sistema de consulta para escalabilidad de componentes y CPU paths.
-* **[Service Management Core](https://github.com/SaladDann/BACKEND_REPARACIONES)**: Plataforma integral para gestión de servicios técnicos y reparaciones.
+---
 
-
-## 📫 Contacto
-- **GitHub:** [SaladDann](https://github.com/SaladDann)
-- **LinkedIn:** 
-
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0d9488&height=80&section=footer" />
+</p>
