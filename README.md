@@ -1,4 +1,4 @@
-# 📂 Catálogo de Proyectos — Edwin Quishpi
+# 📂 Historial de Proyectos
 
 <p align="left">
   <a href="https://github.com/SaladDann">
