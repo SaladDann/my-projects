@@ -2,8 +2,8 @@ name: Auto Update Projects Catalog
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Ejecución diaria a medianoche
-  workflow_dispatch:      # Permite ejecutarlo manualmente desde GitHub UI
+    - cron: '0 0 * * *'  # Se ejecuta automáticamente todos los días a medianoche (UTC)
+  workflow_dispatch:      # Permite ejecutarlo manualmente desde la pestaña Actions en GitHub
 
 permissions:
   contents: write
