@@ -1,6 +1,5 @@
 import os
 import requests
-from datetime import datetime
 
 USERNAME = "SaladDann"
 TOKEN = os.getenv("GH_TOKEN")
@@ -9,7 +8,6 @@ headers = {"Accept": "application/vnd.github.v3+json"}
 if TOKEN:
     headers["Authorization"] = f"token {TOKEN}"
 
-# Diccionario de badges unificado con el tema flat-square del perfil
 LANG_BADGES = {
     "TypeScript": "https://img.shields.io/badge/TypeScript-0f172a?style=flat-square&logo=typescript&logoColor=3178C6",
     "JavaScript": "https://img.shields.io/badge/JavaScript-0f172a?style=flat-square&logo=javascript&logoColor=F7DF1E",
@@ -29,13 +27,9 @@ def get_repos():
     return res.json()
 
 def generate_catalog(repos):
-    # Filtrar repositorio propio de perfil y el propio catálogo
     filtered_repos = [r for r in repos if r["name"].lower() not in [USERNAME.lower(), "my-projects"]]
-    
-    # Ordenar por fecha de creación descendente
     sorted_repos = sorted(filtered_repos, key=lambda x: x["created_at"], reverse=True)
     
-    # Agrupar por año
     repos_by_year = {}
     for repo in sorted_repos:
         year = repo["created_at"].split("-")[0]
@@ -44,9 +38,10 @@ def generate_catalog(repos):
     html = ""
     
     for year, group in repos_by_year.items():
+        # Encabezado por año generado dinámicamente
         html += f'''
-<div style="border-left: 3px solid #0d9488; padding-left: 12px; margin: 28px 0 16px 0;">
-  <span style="font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.9rem; font-weight: 700; color: #0d9488; letter-spacing: 1px;">
+<div style="border-left: 3px solid #0d9488; padding-left: 12px; margin: 24px 0 16px 0;">
+  <span style="font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; font-size: 0.85rem; font-weight: 600; color: #0d9488; letter-spacing: 1px;">
     // {year}
   </span>
 </div>
@@ -65,7 +60,6 @@ def generate_catalog(repos):
                 forks_count = repo["forks_count"]
                 is_fork = repo["fork"]
                 
-                # Tipo de repositorio (Badge)
                 type_badge = (
                     '<img src="https://img.shields.io/badge/FORK-1e293b?style=flat-square&logo=github&logoColor=94a3b8" />' 
                     if is_fork else 
@@ -77,19 +71,19 @@ def generate_catalog(repos):
                     f"https://img.shields.io/badge/{lang}-0f172a?style=flat-square"
                 )
                 
-                html += f'''    <td width="50%" valign="top" style="padding: 8px;">
+                html += f'''    <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-          <h4 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <h4 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
             📁 <a href="{url}" target="_blank" style="color: #f1f5f9; text-decoration: none;">{name}</a>
           </h4>
           {type_badge}
         </div>
-        <p style="margin: 4px 0 8px 0;">
+        <p style="margin: 2px 0 8px 0;">
           <sub style="font-family: 'JetBrains Mono', monospace; color: #64748b;">📅 {created_date} &nbsp;·&nbsp; ⭐ {stars} &nbsp;·&nbsp; 🍴 {forks_count}</sub>
         </p>
-        <p style="margin-bottom: 12px;"><img src="{lang_badge}" alt="{lang}" /></p>
-        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94a3b8; line-height: 1.4; margin-bottom: 12px;">
+        <p style="margin-bottom: 10px;"><img src="{lang_badge}" alt="{lang}" /></p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94a3b8; line-height: 1.4; margin-bottom: 10px;">
           {desc}
         </p>
         <p style="margin: 0;">
@@ -99,7 +93,6 @@ def generate_catalog(repos):
         </p>
       </div>
     </td>\n'''
-            # Si la fila tiene solo un elemento, añadir celda vacía para balancear la tabla
             if len(group[i:i+2]) == 1:
                 html += '    <td width="50%" valign="top"></td>\n'
             html += "  </tr>\n"
