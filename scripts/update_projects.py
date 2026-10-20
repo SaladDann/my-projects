@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime
 
 USERNAME = "SaladDann"
 TOKEN = os.getenv("GH_TOKEN")
@@ -8,15 +9,16 @@ headers = {"Accept": "application/vnd.github.v3+json"}
 if TOKEN:
     headers["Authorization"] = f"token {TOKEN}"
 
+# Diccionario de badges unificado con el tema flat-square del perfil
 LANG_BADGES = {
-    "TypeScript": "https://img.shields.io/badge/TypeScript-005f73?style=flat-square&logo=typescript&logoColor=white",
-    "JavaScript": "https://img.shields.io/badge/JavaScript-0a9396?style=flat-square&logo=javascript&logoColor=white",
-    "Python": "https://img.shields.io/badge/Python-1e3a8a?style=flat-square&logo=python&logoColor=white",
-    "Dart": "https://img.shields.io/badge/Dart-0d9488?style=flat-square&logo=dart&logoColor=white",
-    "C#": "https://img.shields.io/badge/C%23-0f766e?style=flat-square&logo=c-sharp&logoColor=white",
-    "Java": "https://img.shields.io/badge/Java-1e293b?style=flat-square&logo=openjdk&logoColor=white",
-    "HTML": "https://img.shields.io/badge/HTML5-0a9396?style=flat-square&logo=html5&logoColor=white",
-    "C++": "https://img.shields.io/badge/C%2B%2B-005f73?style=flat-square&logo=cplusplus&logoColor=white"
+    "TypeScript": "https://img.shields.io/badge/TypeScript-0f172a?style=flat-square&logo=typescript&logoColor=3178C6",
+    "JavaScript": "https://img.shields.io/badge/JavaScript-0f172a?style=flat-square&logo=javascript&logoColor=F7DF1E",
+    "Python": "https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=3776AB",
+    "Dart": "https://img.shields.io/badge/Dart-0f172a?style=flat-square&logo=dart&logoColor=0175C2",
+    "C#": "https://img.shields.io/badge/C%23-0f172a?style=flat-square&logo=csharp&logoColor=239120",
+    "Java": "https://img.shields.io/badge/Java-0f172a?style=flat-square&logo=openjdk&logoColor=ED8B00",
+    "HTML": "https://img.shields.io/badge/HTML5-0f172a?style=flat-square&logo=html5&logoColor=E34F26",
+    "C++": "https://img.shields.io/badge/C%2B%2B-0f172a?style=flat-square&logo=cplusplus&logoColor=00599C"
 }
 
 def get_repos():
@@ -27,38 +29,88 @@ def get_repos():
     return res.json()
 
 def generate_catalog(repos):
-    # Filtrar forks y el repo de perfil o catálogo si deseas omitirlos
-    own_repos = [r for r in repos if not r["fork"] and r["name"].lower() not in [USERNAME.lower(), "my-projects"]]
-    sorted_repos = sorted(own_repos, key=lambda x: x["created_at"], reverse=True)
+    # Filtrar repositorio propio de perfil y el propio catálogo
+    filtered_repos = [r for r in repos if r["name"].lower() not in [USERNAME.lower(), "my-projects"]]
     
-    html = '<table width="100%">\n'
-    for i in range(0, len(sorted_repos), 2):
-        html += "  <tr>\n"
-        for repo in sorted_repos[i:i+2]:
-            name = repo["name"]
-            url = repo["html_url"]
-            desc = repo["description"] or "Proyecto desarrollado en GitHub."
-            lang = repo["language"] or "Code"
-            created_date = repo["created_at"].split("T")[0]
-            stars = repo["stargazers_count"]
-            
-            badge_url = LANG_BADGES.get(
-                lang, 
-                f"https://img.shields.io/badge/{lang}-0d9488?style=flat-square"
-            )
-            
-            html += f'''    <td width="50%" valign="top">
-      <h4 align="left">📁 <a href="{url}">{name}</a></h4>
-      <p><sub>📅 Creado: <code>{created_date}</code> | ⭐ {stars}</sub></p>
-      <p><img src="{badge_url}" alt="{lang}" /></p>
-      <p>{desc}</p>
-      <p><a href="{url}"><b>Ver Repositorio »</b></a></p>
+    # Ordenar por fecha de creación descendente
+    sorted_repos = sorted(filtered_repos, key=lambda x: x["created_at"], reverse=True)
+    
+    # Agrupar por año
+    repos_by_year = {}
+    for repo in sorted_repos:
+        year = repo["created_at"].split("-")[0]
+        repos_by_year.setdefault(year, []).append(repo)
+    
+    html = ""
+    
+    for year, group in repos_by_year.items():
+        html += f'''
+<div style="border-left: 3px solid #0d9488; padding-left: 12px; margin: 28px 0 16px 0;">
+  <span style="font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.9rem; font-weight: 700; color: #0d9488; letter-spacing: 1px;">
+    // {year}
+  </span>
+</div>
+
+<table width="100%" style="border-collapse: collapse;">
+'''
+        for i in range(0, len(group), 2):
+            html += "  <tr>\n"
+            for repo in group[i:i+2]:
+                name = repo["name"]
+                url = repo["html_url"]
+                desc = repo["description"] or "Sin descripción disponible."
+                lang = repo["language"] or "Code"
+                created_date = repo["created_at"].split("T")[0]
+                stars = repo["stargazers_count"]
+                forks_count = repo["forks_count"]
+                is_fork = repo["fork"]
+                
+                # Tipo de repositorio (Badge)
+                type_badge = (
+                    '<img src="https://img.shields.io/badge/FORK-1e293b?style=flat-square&logo=github&logoColor=94a3b8" />' 
+                    if is_fork else 
+                    '<img src="https://img.shields.io/badge/ORIGINAL-0d9488?style=flat-square" />'
+                )
+                
+                lang_badge = LANG_BADGES.get(
+                    lang, 
+                    f"https://img.shields.io/badge/{lang}-0f172a?style=flat-square"
+                )
+                
+                html += f'''    <td width="50%" valign="top" style="padding: 8px;">
+      <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <h4 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;">
+            📁 <a href="{url}" target="_blank" style="color: #f1f5f9; text-decoration: none;">{name}</a>
+          </h4>
+          {type_badge}
+        </div>
+        <p style="margin: 4px 0 8px 0;">
+          <sub style="font-family: 'JetBrains Mono', monospace; color: #64748b;">📅 {created_date} &nbsp;·&nbsp; ⭐ {stars} &nbsp;·&nbsp; 🍴 {forks_count}</sub>
+        </p>
+        <p style="margin-bottom: 12px;"><img src="{lang_badge}" alt="{lang}" /></p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94a3b8; line-height: 1.4; margin-bottom: 12px;">
+          {desc}
+        </p>
+        <p style="margin: 0;">
+          <a href="{url}" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #0d9488; text-decoration: none; font-weight: 600;">
+            Ver Repositorio →
+          </a>
+        </p>
+      </div>
     </td>\n'''
-        html += "  </tr>\n"
-    html += "</table>\n"
+            # Si la fila tiene solo un elemento, añadir celda vacía para balancear la tabla
+            if len(group[i:i+2]) == 1:
+                html += '    <td width="50%" valign="top"></td>\n'
+            html += "  </tr>\n"
+        html += "</table>\n"
+        
     return html
 
 def update_readme(content):
+    if not os.path.exists("README.md"):
+        return
+        
     with open("README.md", "r", encoding="utf-8") as f:
         readme = f.read()
         
@@ -69,7 +121,7 @@ def update_readme(content):
     e_idx = readme.find(end_tag)
     
     if s_idx != -1 and e_idx != -1:
-        new_readme = readme[:s_idx + len(start_tag)] + "\n\n" + content + "\n" + readme[e_idx:]
+        new_readme = readme[:s_idx + len(start_tag)] + "\n" + content + "\n" + readme[e_idx:]
         with open("README.md", "w", encoding="utf-8") as f:
             f.write(new_readme)
 
