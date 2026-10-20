@@ -1,11 +1,10 @@
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 20px 24px; border: 1px solid #1e293b; border-radius: 12px; background-color: #0f172a; background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
 
-  <!-- Nombre + Subtítulo -->
+  <!-- Título Único -->
   <div>
     <h1 style="margin: 0; font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, monospace; font-size: 1.8rem; font-weight: 700; color: #f1f5f9; letter-spacing: -0.5px;">
       Historial de Proyectos
     </h1>
-    
   </div>
 
   <!-- Botón Volver -->
@@ -16,8 +15,6 @@
 </div>
 
 <br />
-
----
 
 <!-- CATALOG_START -->
 <!-- CATALOG_END -->
