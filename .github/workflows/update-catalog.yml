@@ -3,7 +3,7 @@ name: Auto Update Projects Catalog
 on:
   schedule:
     - cron: '0 0 * * *'  # Se ejecuta automáticamente todos los días a medianoche (UTC)
-  workflow_dispatch:      # Permite ejecutarlo manualmente desde la pestaña Actions en GitHub
+  workflow_dispatch:      # Permite ejecutarlo manualmente desde Actions
 
 permissions:
   contents: write
@@ -35,3 +35,4 @@ jobs:
         with:
           commit_message: "chore: auto-update projects catalog"
           branch: main
+          skip_dirty_check: false
