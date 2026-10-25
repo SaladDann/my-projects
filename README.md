@@ -30,6 +30,28 @@
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
           <h4 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+            📁 <a href="https://github.com/SaladDann/v25-audio-enhancement-research" target="_blank" style="color: #f1f5f9; text-decoration: none;">v25-audio-enhancement-research</a>
+          </h4>
+          <img src="https://img.shields.io/badge/ORIGINAL-0d9488?style=flat-square" />
+        </div>
+        <p style="margin: 2px 0 8px 0;">
+          <sub style="font-family: 'JetBrains Mono', monospace; color: #64748b;">📅 2026-10-25 &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; 🍴 0</sub>
+        </p>
+        <p style="margin-bottom: 10px;"><img src="https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=3776AB" alt="Python" /></p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94a3b8; line-height: 1.4; margin-bottom: 10px;">
+          Investigación experimental sobre una capa residual para mejorar la reconstrucción de audio MP3. Incluye el prototipo V25, métricas de evaluación y pruebas de reproducibilidad. No es un códec de producción.
+        </p>
+        <p style="margin: 0;">
+          <a href="https://github.com/SaladDann/v25-audio-enhancement-research" target="_blank" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #0d9488; text-decoration: none; font-weight: 600;">
+            Ver Repositorio →
+          </a>
+        </p>
+      </div>
+    </td>
+    <td width="50%" valign="top" style="padding: 6px;">
+      <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <h4 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
             📁 <a href="https://github.com/SaladDann/app_onlinemusic" target="_blank" style="color: #f1f5f9; text-decoration: none;">app_onlinemusic</a>
           </h4>
           <img src="https://img.shields.io/badge/ORIGINAL-0d9488?style=flat-square" />
@@ -48,6 +70,8 @@
         </p>
       </div>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -70,8 +94,6 @@
         </p>
       </div>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -94,6 +116,8 @@
         </p>
       </div>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -116,8 +140,6 @@
         </p>
       </div>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -140,6 +162,8 @@
         </p>
       </div>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -162,8 +186,6 @@
         </p>
       </div>
     </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -186,6 +208,8 @@
         </p>
       </div>
     </td>
+  </tr>
+  <tr>
     <td width="50%" valign="top" style="padding: 6px;">
       <div style="padding: 14px; border: 1px solid #1e293b; border-radius: 8px; background-color: #0f172a; height: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -208,6 +232,7 @@
         </p>
       </div>
     </td>
+    <td width="50%" valign="top"></td>
   </tr>
 </table>
 
